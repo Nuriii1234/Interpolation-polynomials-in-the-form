@@ -44,6 +44,7 @@ namespace Interpolation_polynomials_in_the_form
             function_X_fisrt[2] = (function_X[3] - function_X[2]) / (vector_X[3] - vector_X[2]);
             return function_X_fisrt;
         }
+        //-----------------------------------------------------------------------------------------
         double[] Function_X_second(double[] vector_X, double[] function_X_first)
         {
             double[] function_X_second = new double[function_X_first.Length - 1];
@@ -57,12 +58,14 @@ namespace Interpolation_polynomials_in_the_form
             double function_X_third = (function_X_second[1] - function_X_second[0]) / (vector_X[3] - vector_X[0]); ;
             return function_X_third;
         }
+        //-----------------------------------------------------------------------------------------
         double Function_L(double X, double[] vector_X, double[] function_X, double[] function_X_first , double[] function_X_second, double function_X_third)
         {
             double function_L = function_X[0] + (X - vector_X[0]) * function_X_first[0] + (X - vector_X[0]) * (X - vector_X[1]) * function_X_second[0]
                 + (X - vector_X[0]) * (X - vector_X[1]) * (X - vector_X[2]) * function_X_third;
             return function_L;
         }
+        //-----------------------------------------------------------------------------------------
         void Error_rate(double X, double function_L, double[] vector_X)
         {
             var function_X = Function_X(X);
@@ -71,6 +74,7 @@ namespace Interpolation_polynomials_in_the_form
             Console.WriteLine("absolute error = " + absolute_error);
             Console.WriteLine("priori error = " + priori_error);
         }
+        //-----------------------------------------------------------------------------------------
         void Method_Newton()
         {
             var X = -0.5;
