@@ -14,6 +14,16 @@ namespace Interpolation_polynomials_in_the_form
             return vector_X;
         }
         //-----------------------------------------------------------------------------------------
+        void PrintVector(double[] Vector)
+        {
+            for (int i = 0; i < Vector.Length; i++)
+            {
+                Console.Write(Vector[i] + "\t");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+        //-----------------------------------------------------------------------------------------
         double[] Function_X(double[] vector_X)
         {
             double[] function_X = new double[vector_X.Length];
@@ -79,10 +89,19 @@ namespace Interpolation_polynomials_in_the_form
         {
             var X = -0.5;
             var vector_X = Original_Vector_X();
+            Console.WriteLine("Vector x:");
+            PrintVector(vector_X);
             var function_X = Function_X(vector_X);
+            Console.WriteLine("Function x:");
+            PrintVector(function_X);
             var function_X_first = Function_X_fisrt(vector_X, function_X);
+            Console.WriteLine("Function x1:");
+            PrintVector(function_X_first);
             var function_X_second = Function_X_second(vector_X, function_X_first);
+            Console.WriteLine("Function x2:");
+            PrintVector(function_X_second);
             var function_X_third = Function_X_third(vector_X, function_X_second);
+            Console.WriteLine("Function x3 = " + function_X_third);
             var function_L = Function_L(X, vector_X, function_X, function_X_first, function_X_second, function_X_third);
             Error_rate(X, function_L, vector_X);
         }
